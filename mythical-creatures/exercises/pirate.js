@@ -12,14 +12,17 @@ class Pirate {
         this.cursed = true;
         return 'ARG! I\'ve been cursed!';
       } return 'YAARRR!';
-
     }
+
     liftCurse() {
-      this.booty = this.booty - 300;
-      this.cursed = false;
-      return 'Your curse has been lifted!';
+      if (this.cursed) {
+        this.booty -= 300;
+        this.cursed = false;
+        return 'Your curse has been lifted!';
+      } else {
+        return 'You don\'t need to lift a curse!';
+      }
     }
-
 }
 
 

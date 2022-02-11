@@ -3,12 +3,12 @@ var Magician = require('../exercises/magician');
 
 describe('Magician', function() {
 
-  it.skip('should be a function that instantiates a class', function() {
+  it('should be a function that instantiates a class', function() {
     assert.isFunction(Magician);
     assert.instanceOf(new Magician({}), Magician);
   });
 
-  it.skip('should have a stage name', function() {
+  it('should have a stage name', function() {
     var magician1 = new Magician({ name: 'Scott' });
     var magician2 = new Magician({ name: 'Casey' });
 
@@ -41,39 +41,39 @@ describe('Magician', function() {
 
   it.skip('should be able to perform an incantation', function() {
     var magician = new Magician({ name: 'Scott' });
-    
+
     var spell = magician.performIncantation('abracadabra');
     var charm = magician.performIncantation('allakazaam')
-    
+
     assert.equal(spell, 'ABRACADABRA!');
     assert.equal(charm, 'ALLAKAZAAM!');
   });
-  
+
   it.skip('should be able to pull a rabbit from the hat, if the magician has a top hat', function() {
     var magician1 = new Magician({ name: 'Hannah' });
     var magician2 = new Magician({ name: 'Kayla', clothing: 'top hat' });
-    
+
     var spell1 = magician1.performTrick();
     var spell2 = magician2.performTrick();
-    
+
     assert.equal(spell1, 'PULL RABBIT FROM TOP HAT');
     assert.equal(spell2, 'PULL RABBIT FROM TOP HAT');
   });
-  
+
   it.skip('should be able to pull a dove from the sleeve, if the magician does not have a top hat', function() {
     var magician = new Magician({ name: 'Leta', clothing: 'cape' });
-    
+
     var spell = magician.performTrick();
-    
+
     assert.equal(spell, 'PULL DOVE FROM SLEEVE');
   });
-  
+
   it.skip('should start not very confident', function() {
     var magician = new Magician({ name: 'Leta' });
-    
+
     assert.equal(magician.confidencePercentage, 10);
   });
-  
+
   it.skip('should gain confidence after performing spells', function() {
     var magician = new Magician({ name: 'Leta' });
 
