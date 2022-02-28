@@ -2,7 +2,7 @@ const assert = require('chai').assert;
 const Fairy = require('../exercises/fairy');
 
 describe('Fairy', () => {
-  it.skip('should be a function', () => {
+  it('should be a function', () => {
     assert.isFunction(Fairy);
   });
 

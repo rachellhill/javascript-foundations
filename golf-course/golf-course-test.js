@@ -119,11 +119,11 @@ describe('Golfer', function () {
   it('should gain confidence after more practice', function () {
     var golfer1 = new Golfer({ name: 'Mark', handicap: 10 });
     assert.equal(golfer1.confidence, 0);
-    golfer1.hitTheRange();
-    assert.equal(golfer1.confidence, 10);
-    simulatePractice(5, golfer1);
-    assert.equal(golfer1.confidence, 60);
-    simulatePractice(1, golfer1);
+    golfer1.hitTheRange(); // practices at the range
+    assert.equal(golfer1.confidence, 10); // confidence goes up by 10
+    simulatePractice(5, golfer1); // practices at a simulator 5 times (passing in 2 paramters)
+    assert.equal(golfer1.confidence, 60); // 10 + 50 = 60
+    simulatePractice(1, golfer1); //
     assert.equal(golfer1.confidence, 70);
   });
 
@@ -144,22 +144,22 @@ describe('Golfer', function () {
     var golfer1 = new Golfer({ name: 'Zach', handicap: 18 });
 
 
-    assert.equal(golfer1.frustration, 0);
+    assert.equal(golfer1.frustration, 0); // frustration starts at 0
 
-    var shot1 = golfer1.whatYaShoot(4);
-    assert.equal(golfer1.frustration, 20);
-    assert.equal(shot1, 'Doh!');
+    var shot1 = golfer1.whatYaShoot(4); // shoots above 0
+    assert.equal(golfer1.frustration, 20); // frustration goes up 20
+    assert.equal(shot1, 'Doh!'); // returns string
 
-    var shot2 = golfer1.whatYaShoot(0);
-    assert.equal(golfer1.frustration, 10);
-    assert.equal(shot2, 'Booyah!');
+    var shot2 = golfer1.whatYaShoot(0); // shoots even par
+    assert.equal(golfer1.frustration, 10); // frustration decreases by 10
+    assert.equal(shot2, 'Booyah!'); // returns string on even par
 
     var shot3 = golfer1.whatYaShoot(2);
-    assert.equal(golfer1.frustration, 30);
+    assert.equal(golfer1.frustration, 30); // goes up by 20 again
     assert.equal(shot3, 'Doh!');
 
-    var shot4 = golfer1.whatYaShoot(-2);
-    assert.equal(golfer1.frustration, 0);
+    var shot4 = golfer1.whatYaShoot(-2); // shoots below 0
+    assert.equal(golfer1.frustration, 0); // maybe frustration starts back at 0?
     assert.equal(shot4, 'I AM THE GREATEST GOLFER ALIVE!');
 
     var shot5 = golfer1.whatYaShoot(3);
